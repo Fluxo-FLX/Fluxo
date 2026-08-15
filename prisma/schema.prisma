@@ -1,0 +1,125 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum UserRole {
+  customer
+  admin
+}
+
+enum CategorySlug {
+  fitness
+  surf
+  casual
+}
+
+model User {
+  id                  String    @id @default(cuid())
+  name                String
+  email               String    @unique
+  passwordHash        String
+  role                UserRole  @default(customer)
+  resetToken          String?
+  resetTokenExpiresAt DateTime?
+  createdAt           DateTime  @default(now())
+  addresses           Address[]
+}
+
+model Address {
+  id           String  @id @default(cuid())
+  userId       String
+  user         User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  label        String
+  recipient    String
+  cpf          String
+  street       String
+  number       String
+  complement   String?
+  neighborhood String
+  city         String
+  state        String
+  zip          String
+
+  @@index([userId])
+}
+
+model Brand {
+  slug        String    @id
+  name        String
+  tagline     String
+  description String
+  history     String
+  categories  CategorySlug[]
+  accent      String
+  products    Product[]
+}
+
+model Product {
+  slug           String  @id
+  name           String
+  brandSlug      String
+  brand          Brand   @relation(fields: [brandSlug], references: [slug])
+  category       CategorySlug
+  subcategory    String
+  price          Float
+  compareAtPrice Float?
+  colors         Json
+  sizes          String[]
+  description    String
+  composition    String
+  care           String[]
+  isNew          Boolean  @default(false)
+  isBestSeller   Boolean  @default(false)
+  tags           String[]
+  relatedSlugs   String[] @default([])
+  stock          Int
+  imageTone      String?
+  images         String[] @default([])
+  sizeGuideRows  Json?
+
+  @@index([brandSlug])
+  @@index([category])
+}
+
+model Order {
+  id            String   @id
+  createdAt     DateTime @default(now())
+  userEmail     String
+  items         Json
+  subtotal      Float
+  shipping      Float
+  discount      Float
+  couponCode    String?
+  total         Float
+  paymentMethod String
+  address       Json
+  status        String
+  tracking      String?
+
+  @@index([userEmail])
+}
+
+model Coupon {
+  code        String  @id
+  type        String
+  value       Float
+  minSubtotal Float?
+  usageLimit  Int?
+  usageCount  Int     @default(0)
+  active      Boolean @default(true)
+}
+
+/** Singleton row (always id = 1) holding store-wide settings edited in /admin/configuracoes. */
+model Settings {
+  id                    Int    @id @default(1)
+  freeShippingThreshold Float
+  whatsappNumber        String
+}

@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Product" ALTER COLUMN "relatedSlugs" SET DEFAULT ARRAY[]::TEXT[],
+ALTER COLUMN "images" SET DEFAULT ARRAY[]::TEXT[];
