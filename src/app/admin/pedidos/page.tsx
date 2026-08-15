@@ -70,7 +70,7 @@ export default async function AdminOrdersPage({ searchParams }: PageProps<"/admi
             name="q"
             defaultValue={query}
             placeholder="Nº do pedido ou e-mail"
-            className="w-full border border-mist px-3 py-2.5 text-sm outline-none focus:border-petrol"
+            className="w-full border border-mist px-3 py-2.5 text-base outline-none focus:border-petrol sm:text-sm"
           />
         </div>
         <div>
@@ -79,7 +79,7 @@ export default async function AdminOrdersPage({ searchParams }: PageProps<"/admi
             type="date"
             name="from"
             defaultValue={from}
-            className="border border-mist px-3 py-2.5 text-sm outline-none focus:border-petrol"
+            className="border border-mist px-3 py-2.5 text-base outline-none focus:border-petrol sm:text-sm"
           />
         </div>
         <div>
@@ -88,7 +88,7 @@ export default async function AdminOrdersPage({ searchParams }: PageProps<"/admi
             type="date"
             name="to"
             defaultValue={to}
-            className="border border-mist px-3 py-2.5 text-sm outline-none focus:border-petrol"
+            className="border border-mist px-3 py-2.5 text-base outline-none focus:border-petrol sm:text-sm"
           />
         </div>
         <input type="hidden" name="status" value={statusFilter} />

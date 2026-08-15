@@ -39,7 +39,7 @@ export function ContactForm() {
         <textarea
           id="message"
           rows={5}
-          className={`border px-3 py-2.5 text-sm text-ink outline-none transition-colors focus:border-petrol ${
+          className={`border px-3 py-2.5 text-base text-ink outline-none transition-colors focus:border-petrol sm:text-sm ${
             errors.message ? "border-red-500" : "border-mist"
           }`}
           {...register("message")}

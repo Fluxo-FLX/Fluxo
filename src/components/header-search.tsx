@@ -47,7 +47,7 @@ export function HeaderSearch() {
         aria-label="Pesquisar"
         className="-m-2 p-2 text-ink transition-colors hover:text-petrol"
       >
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
           <circle cx="11" cy="11" r="7" />
           <path d="M21 21l-4.3-4.3" />
         </svg>

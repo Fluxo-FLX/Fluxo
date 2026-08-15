@@ -170,7 +170,7 @@ export function Header({ categoryMenus }: { categoryMenus: CategoryMenu[] }) {
       <div className="relative mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <button
           type="button"
-          className="-m-2.5 p-2.5 text-ink lg:hidden"
+          className="-m-2 p-2 text-ink lg:hidden"
           aria-label="Abrir menu"
           onClick={() => setMobileOpen(true)}
         >
@@ -210,7 +210,7 @@ export function Header({ categoryMenus }: { categoryMenus: CategoryMenu[] }) {
           </Link>
         </nav>
 
-        <div className="flex items-center gap-1 sm:gap-2">
+        <div className="flex items-center gap-4 sm:gap-2">
           <HeaderSearch />
           <Link
             href={session ? "/conta" : "/login"}
@@ -218,11 +218,11 @@ export function Header({ categoryMenus }: { categoryMenus: CategoryMenu[] }) {
             className="-m-2 p-2 text-ink transition-colors hover:text-petrol"
           >
             {session ? (
-              <span className="flex h-[19px] w-[19px] items-center justify-center rounded-full bg-ink text-[10px] text-paper">
+              <span className="flex h-[21px] w-[21px] items-center justify-center rounded-full bg-ink text-[10px] text-paper">
                 {session.user?.name?.[0]?.toUpperCase() ?? "F"}
               </span>
             ) : (
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
                 <circle cx="12" cy="8" r="4" />
                 <path d="M4 20c0-4 3.5-6 8-6s8 2 8 6" />
               </svg>
@@ -233,11 +233,11 @@ export function Header({ categoryMenus }: { categoryMenus: CategoryMenu[] }) {
             aria-label="Favoritos"
             className="relative -m-2 p-2 text-ink transition-colors hover:text-petrol"
           >
-            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
               <path d="M12 20.2c-.3 0-.6-.1-.8-.3-1.9-1.5-3.7-2.9-5.2-4.4C3.7 13.2 2 11 2 8.5 2 6 4 4 6.5 4c1.6 0 3 .8 3.9 2 .1.2.4.2.5 0 .9-1.2 2.3-2 3.9-2C17.3 4 19.5 6 19.5 8.5c0 2.5-1.7 4.7-3.9 6.9-1.5 1.5-3.3 2.9-5.2 4.4-.2.2-.5.3-.8.3Z" />
             </svg>
             {slugs.length > 0 && (
-              <span className="absolute right-1 top-1 flex h-4 w-4 items-center justify-center rounded-full bg-petrol text-[10px] text-paper">
+              <span className="absolute right-0.5 top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-petrol text-[10px] text-paper">
                 {slugs.length}
               </span>
             )}
@@ -248,12 +248,12 @@ export function Header({ categoryMenus }: { categoryMenus: CategoryMenu[] }) {
             aria-label="Abrir carrinho"
             className="relative -m-2 p-2 text-ink transition-colors hover:text-petrol"
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
               <path d="M6 8h12l1.5 12h-15z" />
               <path d="M9 8a3 3 0 0 1 6 0" />
             </svg>
             {itemCount > 0 && (
-              <span className="absolute right-1 top-1 flex h-4 w-4 items-center justify-center rounded-full bg-ink text-[10px] text-paper">
+              <span className="absolute right-0.5 top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-ink text-[10px] text-paper">
                 {itemCount}
               </span>
             )}

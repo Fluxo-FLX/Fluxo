@@ -13,7 +13,7 @@ export function FormField({ label, error, id, className = "", ...rest }: FormFie
       </label>
       <input
         id={id}
-        className={`border px-3 py-2.5 text-sm text-ink outline-none transition-colors focus:border-petrol ${
+        className={`border px-3 py-2.5 text-base text-ink outline-none transition-colors focus:border-petrol sm:text-sm ${
           error ? "border-red-500" : "border-mist"
         } ${className}`}
         {...rest}

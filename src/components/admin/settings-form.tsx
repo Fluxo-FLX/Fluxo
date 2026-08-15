@@ -10,7 +10,7 @@ function labelClass() {
 }
 
 function inputClass(hasError?: boolean) {
-  return `border px-3 py-2 text-sm outline-none focus:border-petrol ${hasError ? "border-red-500" : "border-mist"}`;
+  return `border px-3 py-2 text-base outline-none focus:border-petrol sm:text-sm ${hasError ? "border-red-500" : "border-mist"}`;
 }
 
 export function SettingsForm({ settings }: { settings: StoreSettings }) {

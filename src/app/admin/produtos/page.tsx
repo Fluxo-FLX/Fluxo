@@ -75,12 +75,12 @@ export default async function AdminProductsPage({
           name="q"
           defaultValue={query}
           placeholder="Buscar por produto, marca ou categoria"
-          className="min-w-[220px] flex-1 border border-mist px-3 py-2.5 text-sm outline-none focus:border-petrol"
+          className="min-w-[220px] flex-1 border border-mist px-3 py-2.5 text-base outline-none focus:border-petrol sm:text-sm"
         />
         <select
           name="brand"
           defaultValue={brandFilter}
-          className="border border-mist bg-paper px-3 py-2.5 text-sm outline-none focus:border-petrol"
+          className="border border-mist bg-paper px-3 py-2.5 text-base outline-none focus:border-petrol sm:text-sm"
         >
           <option value="">Todas as marcas</option>
           {brands.map((b) => (
@@ -92,7 +92,7 @@ export default async function AdminProductsPage({
         <select
           name="category"
           defaultValue={categoryFilter}
-          className="border border-mist bg-paper px-3 py-2.5 text-sm outline-none focus:border-petrol"
+          className="border border-mist bg-paper px-3 py-2.5 text-base outline-none focus:border-petrol sm:text-sm"
         >
           <option value="">Todas as categorias</option>
           {(Object.keys(CATEGORY_LABELS) as CategorySlug[]).map((c) => (
@@ -104,7 +104,7 @@ export default async function AdminProductsPage({
         <select
           name="status"
           defaultValue={statusFilter}
-          className="border border-mist bg-paper px-3 py-2.5 text-sm outline-none focus:border-petrol"
+          className="border border-mist bg-paper px-3 py-2.5 text-base outline-none focus:border-petrol sm:text-sm"
         >
           <option value="">Todos os status</option>
           <option value="ativo">Ativo</option>
@@ -113,7 +113,7 @@ export default async function AdminProductsPage({
         <select
           name="sort"
           defaultValue={sort}
-          className="border border-mist bg-paper px-3 py-2.5 text-sm outline-none focus:border-petrol"
+          className="border border-mist bg-paper px-3 py-2.5 text-base outline-none focus:border-petrol sm:text-sm"
         >
           {(Object.keys(SORT_LABELS) as SortKey[]).map((key) => (
             <option key={key} value={key}>

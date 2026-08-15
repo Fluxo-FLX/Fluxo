@@ -75,11 +75,6 @@ export function LoginForm({ callbackUrl }: { callbackUrl: string }) {
         Continuar com Google
       </button>
 
-      <div className="border-t border-mist pt-4 text-xs text-graphite">
-        <p className="mb-1">Conta demo para teste:</p>
-        <p>demo@fluxoflx.com · fluxo1234</p>
-      </div>
-
       <p className="text-center text-sm text-graphite">
         Ainda não tem conta?{" "}
         <Link href={`/cadastro?callbackUrl=${encodeURIComponent(callbackUrl)}`} className="text-petrol hover:underline">

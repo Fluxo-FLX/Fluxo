@@ -243,7 +243,7 @@ export function CatalogFilters({
             placeholder={`R$ ${priceBounds.min}`}
             value={state.minPrice ?? ""}
             onChange={(e) => onChange({ ...state, minPrice: e.target.value === "" ? null : Number(e.target.value) })}
-            className="w-full min-w-0 border border-mist px-2.5 py-2 text-xs outline-none focus:border-petrol"
+            className="w-full min-w-0 border border-mist px-2.5 py-2 text-base outline-none focus:border-petrol sm:text-xs"
           />
           <span className="shrink-0 text-xs text-graphite">até</span>
           <input
@@ -252,7 +252,7 @@ export function CatalogFilters({
             placeholder={`R$ ${priceBounds.max}`}
             value={state.maxPrice ?? ""}
             onChange={(e) => onChange({ ...state, maxPrice: e.target.value === "" ? null : Number(e.target.value) })}
-            className="w-full min-w-0 border border-mist px-2.5 py-2 text-xs outline-none focus:border-petrol"
+            className="w-full min-w-0 border border-mist px-2.5 py-2 text-base outline-none focus:border-petrol sm:text-xs"
           />
         </div>
       </div>

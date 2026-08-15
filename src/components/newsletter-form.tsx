@@ -28,7 +28,7 @@ export function NewsletterForm({ dark = false }: { dark?: boolean }) {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Seu melhor e-mail"
-        className={`flex-1 border-b bg-transparent px-1 py-2.5 text-sm outline-none placeholder:text-graphite ${
+        className={`flex-1 border-b bg-transparent px-1 py-2.5 text-base outline-none placeholder:text-graphite sm:text-sm ${
           dark ? "border-paper/30 text-paper" : "border-mist text-ink"
         }`}
       />

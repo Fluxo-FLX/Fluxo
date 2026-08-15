@@ -59,12 +59,12 @@ export default async function AdminStockPage({
           name="q"
           defaultValue={query}
           placeholder="Buscar por produto, marca ou categoria"
-          className="min-w-[240px] flex-1 border border-mist px-3 py-2.5 text-sm outline-none focus:border-petrol"
+          className="min-w-[240px] flex-1 border border-mist px-3 py-2.5 text-base outline-none focus:border-petrol sm:text-sm"
         />
         <select
           name="sort"
           defaultValue={sort}
-          className="border border-mist bg-paper px-3 py-2.5 text-sm outline-none focus:border-petrol"
+          className="border border-mist bg-paper px-3 py-2.5 text-base outline-none focus:border-petrol sm:text-sm"
         >
           {(Object.keys(SORT_LABELS) as SortKey[]).map((key) => (
             <option key={key} value={key}>

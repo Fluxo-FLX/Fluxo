@@ -49,7 +49,7 @@ export function TrackingForm({ initialOrderId = "" }: { initialOrderId?: string 
           value={orderId}
           onChange={(e) => setOrderId(e.target.value)}
           placeholder="Número do pedido (ex: FLX-123456)"
-          className="flex-1 border border-mist px-3 py-3 text-sm outline-none focus:border-petrol"
+          className="flex-1 border border-mist px-3 py-3 text-base outline-none focus:border-petrol sm:text-sm"
         />
         {isGuest && (
           <input
@@ -57,7 +57,7 @@ export function TrackingForm({ initialOrderId = "" }: { initialOrderId?: string 
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="E-mail usado na compra"
-            className="flex-1 border border-mist px-3 py-3 text-sm outline-none focus:border-petrol"
+            className="flex-1 border border-mist px-3 py-3 text-base outline-none focus:border-petrol sm:text-sm"
           />
         )}
         <button
