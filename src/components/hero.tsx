@@ -8,7 +8,7 @@ export function Hero() {
         alt="Campanha Fluxo FLX — treino, surf e cidade"
         fetchPriority="high"
         loading="eager"
-        className="absolute inset-0 h-full w-full object-cover"
+        className="absolute inset-0 h-full w-full object-cover object-top"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/10 to-transparent" />
 
