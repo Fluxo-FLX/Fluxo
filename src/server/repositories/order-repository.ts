@@ -10,23 +10,27 @@ function toOrder(row: OrderRow): Order {
   return {
     ...row,
     createdAt: row.createdAt.toISOString(),
+    channel: row.channel as Order["channel"],
+    userEmail: row.userEmail ?? undefined,
+    customerName: row.customerName ?? undefined,
+    customerPhone: row.customerPhone ?? undefined,
     couponCode: row.couponCode ?? undefined,
     tracking: row.tracking ?? undefined,
     paymentMethod: row.paymentMethod as Order["paymentMethod"],
     status: row.status as Order["status"],
     items: row.items as Order["items"],
-    address: row.address as Order["address"],
+    address: (row.address as Order["address"]) ?? undefined,
   };
 }
 
 export async function addOrder(order: Order): Promise<Order> {
-  const { createdAt, ...rest } = order;
+  const { createdAt, address, ...rest } = order;
   const created = await db.order.create({
     data: {
       ...rest,
       createdAt: new Date(createdAt),
       items: rest.items as unknown as Prisma.InputJsonValue,
-      address: rest.address as unknown as Prisma.InputJsonValue,
+      address: address ? (address as unknown as Prisma.InputJsonValue) : undefined,
     },
   });
   return toOrder(created);

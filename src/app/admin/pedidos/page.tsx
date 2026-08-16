@@ -20,9 +20,19 @@ function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("pt-BR", { day: "2-digit", month: "short", year: "numeric" });
 }
 
+const CHANNEL_LABELS: Record<Order["channel"], string> = {
+  online: "Online",
+  presencial: "Presencial",
+  whatsapp: "WhatsApp",
+};
+
 function matchesQuery(order: Order, query: string) {
   const term = query.toLowerCase();
-  return order.id.toLowerCase().includes(term) || order.userEmail.toLowerCase().includes(term);
+  return (
+    order.id.toLowerCase().includes(term) ||
+    Boolean(order.userEmail?.toLowerCase().includes(term)) ||
+    Boolean(order.customerName?.toLowerCase().includes(term))
+  );
 }
 
 function buildQueryString(params: Record<string, string>) {
@@ -56,10 +66,18 @@ export default async function AdminOrdersPage({ searchParams }: PageProps<"/admi
   return (
     <div>
       <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
-        <h1 className="font-display text-2xl sm:text-3xl">Pedidos</h1>
-        <p className="text-sm text-graphite">
-          {filtered.length} de {orders.length} pedido(s)
-        </p>
+        <div>
+          <h1 className="font-display text-2xl sm:text-3xl">Pedidos</h1>
+          <p className="mt-1 text-sm text-graphite">
+            {filtered.length} de {orders.length} pedido(s)
+          </p>
+        </div>
+        <Link
+          href="/admin/vendas/nova"
+          className="label-caps border border-ink px-5 py-3 text-xs transition-colors hover:bg-ink hover:text-paper"
+        >
+          Lançar venda
+        </Link>
       </div>
 
       <form className="mb-6 flex flex-wrap items-end gap-3" action="/admin/pedidos">
@@ -140,9 +158,16 @@ export default async function AdminOrdersPage({ searchParams }: PageProps<"/admi
             <li key={order.id} className="border border-mist p-5">
               <div className="flex flex-wrap items-start justify-between gap-3 border-b border-mist pb-4">
                 <div>
-                  <p className="text-sm text-ink">Pedido {order.id}</p>
+                  <div className="flex items-center gap-2">
+                    <p className="text-sm text-ink">Pedido {order.id}</p>
+                    {order.channel !== "online" && (
+                      <span className="label-caps border border-mist px-2 py-0.5 text-[10px] text-graphite">
+                        {CHANNEL_LABELS[order.channel]}
+                      </span>
+                    )}
+                  </div>
                   <p className="text-xs text-graphite">
-                    {order.userEmail} · {formatDate(order.createdAt)}
+                    {order.userEmail ?? order.customerName ?? "Cliente não identificado"} · {formatDate(order.createdAt)}
                   </p>
                 </div>
                 <p className="text-sm font-medium">{formatPrice(order.total)}</p>

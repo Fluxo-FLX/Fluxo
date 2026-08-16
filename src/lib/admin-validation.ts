@@ -80,3 +80,30 @@ export const couponFormSchema = z
   });
 
 export type CouponFormInput = z.infer<typeof couponFormSchema>;
+
+export const manualSaleItemSchema = z.object({
+  productSlug: z.string().min(1, "Selecione um produto."),
+  color: z.string().min(1, "Selecione a cor."),
+  size: z.string().min(1, "Selecione o tamanho."),
+  quantity: z.number("Informe uma quantidade válida.").int().min(1, "Quantidade mínima é 1."),
+  price: z.number("Informe um preço válido.").min(0, "O preço não pode ser negativo."),
+});
+
+export const manualSaleFormSchema = z.object({
+  channel: z.enum(["presencial", "whatsapp"]),
+  customerName: z.string().min(1, "Informe o nome do cliente."),
+  customerPhone: z.string().optional(),
+  paymentMethod: z.enum(["pix", "cartao", "boleto"]),
+  status: z.enum([
+    "Pedido recebido",
+    "Pagamento aprovado",
+    "Em preparação",
+    "Enviado",
+    "Em trânsito",
+    "Entregue",
+    "Cancelado",
+  ]),
+  items: z.array(manualSaleItemSchema).min(1, "Adicione ao menos um produto."),
+});
+
+export type ManualSaleFormInput = z.infer<typeof manualSaleFormSchema>;

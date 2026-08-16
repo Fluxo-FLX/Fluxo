@@ -19,9 +19,12 @@ export async function trackOrderAction(orderId: string, email?: string): Promise
   const session = await auth();
   const sessionEmail = session?.user?.email?.toLowerCase();
   const providedEmail = email?.trim().toLowerCase();
-  const orderEmail = order.userEmail.toLowerCase();
+  const orderEmail = order.userEmail?.toLowerCase();
 
-  const authorized = sessionEmail === orderEmail || (Boolean(providedEmail) && providedEmail === orderEmail);
+  // A manual (in-person/WhatsApp) sale has no e-mail on file, so it can
+  // never be matched here — there's no credential a guest or session could
+  // supply to prove ownership of it.
+  const authorized = Boolean(orderEmail) && (sessionEmail === orderEmail || providedEmail === orderEmail);
   if (!authorized) return { found: false };
 
   return { found: true, order };

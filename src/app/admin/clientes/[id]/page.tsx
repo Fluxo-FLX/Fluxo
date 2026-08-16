@@ -16,7 +16,7 @@ export default async function AdminCustomerDetailPage({ params }: { params: Prom
   if (!user) notFound();
 
   const allOrders = await getAllOrders();
-  const orders = allOrders.filter((o) => o.userEmail.toLowerCase() === user.email.toLowerCase());
+  const orders = allOrders.filter((o) => o.userEmail?.toLowerCase() === user.email.toLowerCase());
   const totalSpent = round2(orders.reduce((sum, o) => sum + o.total, 0));
 
   return (

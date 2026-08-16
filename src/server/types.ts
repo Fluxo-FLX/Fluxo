@@ -41,6 +41,8 @@ export type OrderStatus =
 
 export type PaymentMethod = "pix" | "cartao" | "boleto";
 
+export type SaleChannel = "online" | "presencial" | "whatsapp";
+
 export type OrderItem = {
   productSlug: string;
   name: string;
@@ -54,7 +56,11 @@ export type OrderItem = {
 export type Order = {
   id: string;
   createdAt: string;
-  userEmail: string;
+  channel: SaleChannel;
+  /** Present for online orders (checkout requires it); absent for manual sales, which use customerName/customerPhone instead. */
+  userEmail?: string;
+  customerName?: string;
+  customerPhone?: string;
   items: OrderItem[];
   subtotal: number;
   shipping: number;
@@ -62,7 +68,8 @@ export type Order = {
   couponCode?: string;
   total: number;
   paymentMethod: PaymentMethod;
-  address: Address;
+  /** Only online orders (delivered) have a shipping address; manual sales don't. */
+  address?: Address;
   status: OrderStatus;
   tracking?: string;
 };

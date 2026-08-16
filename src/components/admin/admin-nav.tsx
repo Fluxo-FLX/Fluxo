@@ -10,6 +10,7 @@ export const NAV_LINKS = [
   { href: "/admin/marcas", label: "Marcas" },
   { href: "/admin/cupons", label: "Cupons" },
   { href: "/admin/pedidos", label: "Pedidos" },
+  { href: "/admin/vendas/nova", label: "Lançar venda" },
   { href: "/admin/clientes", label: "Clientes" },
   { href: "/admin/configuracoes", label: "Configurações" },
 ];

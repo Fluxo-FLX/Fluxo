@@ -17,7 +17,7 @@ export default async function AdminCustomersPage({
   const rows = users
     .filter((u) => !query || u.name.toLowerCase().includes(query) || u.email.toLowerCase().includes(query))
     .map((user) => {
-      const userOrders = orders.filter((o) => o.userEmail.toLowerCase() === user.email.toLowerCase());
+      const userOrders = orders.filter((o) => o.userEmail?.toLowerCase() === user.email.toLowerCase());
       const totalSpent = round2(userOrders.reduce((sum, o) => sum + o.total, 0));
       return { user, orderCount: userOrders.length, totalSpent };
     })

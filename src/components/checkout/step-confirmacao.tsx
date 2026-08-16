@@ -22,7 +22,7 @@ export function StepConfirmacao({ order, isGuest = false }: { order: Order; isGu
           <p className="text-ink">Quer acompanhar seus pedidos com mais facilidade?</p>
           <p className="mt-1 text-graphite">Crie uma conta com o e-mail {order.userEmail}, sem preencher nada de novo.</p>
           <ButtonLink
-            href={`/cadastro?email=${encodeURIComponent(order.userEmail)}`}
+            href={`/cadastro?email=${encodeURIComponent(order.userEmail ?? "")}`}
             variant="secondary"
             className="mt-4"
           >

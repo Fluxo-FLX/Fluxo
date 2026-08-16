@@ -21,6 +21,12 @@ enum CategorySlug {
   casual
 }
 
+enum SaleChannel {
+  online
+  presencial
+  whatsapp
+}
+
 model User {
   id                  String    @id @default(cuid())
   name                String
@@ -90,9 +96,12 @@ model Product {
 }
 
 model Order {
-  id            String   @id
-  createdAt     DateTime @default(now())
-  userEmail     String
+  id            String      @id
+  createdAt     DateTime    @default(now())
+  channel       SaleChannel @default(online)
+  userEmail     String?
+  customerName  String?
+  customerPhone String?
   items         Json
   subtotal      Float
   shipping      Float
@@ -100,7 +109,7 @@ model Order {
   couponCode    String?
   total         Float
   paymentMethod String
-  address       Json
+  address       Json?
   status        String
   tracking      String?
 

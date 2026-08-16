@@ -170,7 +170,7 @@ export function Header({ categoryMenus }: { categoryMenus: CategoryMenu[] }) {
       <div className="relative mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <button
           type="button"
-          className="-m-2 p-2 text-ink lg:hidden"
+          className="-m-2 shrink-0 p-2 text-ink lg:hidden"
           aria-label="Abrir menu"
           onClick={() => setMobileOpen(true)}
         >
@@ -179,12 +179,15 @@ export function Header({ categoryMenus }: { categoryMenus: CategoryMenu[] }) {
           </svg>
         </button>
 
-        <Link
-          href="/"
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 shrink-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 lg:translate-y-0"
-        >
-          <img src="/logo.png?v=2" alt="Fluxo FLX" className="h-6 w-auto sm:h-7" />
-        </Link>
+        {/* Centered within the space actually left over between the hamburger
+            and the icon group — not the container's true midpoint, which
+            drifts into whichever side group is wider (see mobile header
+            icon-spacing changes). */}
+        <div className="flex flex-1 justify-center lg:flex-none lg:justify-start">
+          <Link href="/" className="shrink-0">
+            <img src="/logo.png?v=2" alt="Fluxo FLX" className="h-6 w-auto sm:h-7" />
+          </Link>
+        </div>
 
         <nav className="hidden items-center gap-7 lg:flex">
           <Link href="/loja" className="label-caps text-xs text-ink transition-colors hover:text-petrol">
@@ -210,7 +213,7 @@ export function Header({ categoryMenus }: { categoryMenus: CategoryMenu[] }) {
           </Link>
         </nav>
 
-        <div className="flex items-center gap-4 sm:gap-2">
+        <div className="flex shrink-0 items-center gap-4 sm:gap-2">
           <HeaderSearch />
           <Link
             href={session ? "/conta" : "/login"}

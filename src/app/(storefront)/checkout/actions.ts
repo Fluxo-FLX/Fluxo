@@ -131,6 +131,7 @@ export async function createOrderAction(input: unknown): Promise<CreateOrderResu
   const order: Order = {
     id: generateOrderId(),
     createdAt: new Date().toISOString(),
+    channel: "online",
     userEmail: email,
     items: resolvedItems,
     subtotal,
