@@ -122,17 +122,22 @@ export function ProductForm({
   const handleImageUpload = async (index: number, file: File) => {
     setUploadError(null);
     setUploadingIndex(index);
-    const formData = new FormData();
-    formData.append("file", file);
-    const result = await uploadImageAction(formData);
-    setUploadingIndex(null);
-    if (!result.success) {
-      setUploadError(result.error);
-      return;
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      const result = await uploadImageAction(formData);
+      if (!result.success) {
+        setUploadError(result.error);
+        return;
+      }
+      const next = [...imageItems];
+      next[index] = result.url;
+      updateImages(next);
+    } catch {
+      setUploadError("Não foi possível enviar a imagem. Tente novamente.");
+    } finally {
+      setUploadingIndex(null);
     }
-    const next = [...imageItems];
-    next[index] = result.url;
-    updateImages(next);
   };
 
   const toggleSize = (size: string) => {

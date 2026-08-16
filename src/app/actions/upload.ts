@@ -1,8 +1,7 @@
 "use server";
 
 import { randomUUID } from "crypto";
-import { mkdir, writeFile } from "fs/promises";
-import path from "path";
+import { createClient } from "@supabase/supabase-js";
 import { auth } from "@/auth";
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024;
@@ -13,14 +12,10 @@ const EXTENSION_BY_TYPE: Record<string, string> = {
   "image/gif": "gif",
 };
 
+const BUCKET = "product-images";
+
 export type UploadImageResult = { success: true; url: string } | { success: false; error: string };
 
-/**
- * Saves to public/uploads on local disk — fine for this dev/demo stage, but
- * won't survive a serverless deploy (e.g. Vercel's read-only filesystem).
- * Swap for real object storage (S3, Supabase Storage, Cloudinary) once the
- * store moves off the in-memory database.
- */
 export async function uploadImageAction(formData: FormData): Promise<UploadImageResult> {
   const session = await auth();
   if (session?.user?.role !== "admin") {
@@ -40,12 +35,24 @@ export async function uploadImageAction(formData: FormData): Promise<UploadImage
     return { success: false, error: "A imagem deve ter no máximo 5 MB." };
   }
 
-  const uploadsDir = path.join(process.cwd(), "public", "uploads");
-  await mkdir(uploadsDir, { recursive: true });
+  const supabaseUrl = process.env.SUPABASE_URL;
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!supabaseUrl || !serviceRoleKey) {
+    return { success: false, error: "Upload de imagens não configurado no servidor." };
+  }
 
+  const supabase = createClient(supabaseUrl, serviceRoleKey);
   const filename = `${randomUUID()}.${extension}`;
   const buffer = Buffer.from(await file.arrayBuffer());
-  await writeFile(path.join(uploadsDir, filename), buffer);
 
-  return { success: true, url: `/uploads/${filename}` };
+  const { error } = await supabase.storage.from(BUCKET).upload(filename, buffer, {
+    contentType: file.type,
+    cacheControl: "31536000",
+  });
+  if (error) {
+    return { success: false, error: "Falha ao enviar a imagem. Tente novamente." };
+  }
+
+  const { data } = supabase.storage.from(BUCKET).getPublicUrl(filename);
+  return { success: true, url: data.publicUrl };
 }
