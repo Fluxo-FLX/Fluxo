@@ -148,9 +148,26 @@ export function Header({ categoryMenus }: { categoryMenus: CategoryMenu[] }) {
   }, []);
 
   useEffect(() => {
-    document.documentElement.style.overflow = mobileOpen ? "hidden" : "";
+    if (!mobileOpen) return;
+    // Plain `overflow: hidden` on <html> doesn't reliably lock scroll on iOS
+    // Safari once the page is already scrolled — the sticky header and the
+    // fixed drawer can end up positioned relative to the stale scroll offset
+    // instead of the viewport. Pinning the body via a negative `top` offset
+    // (the standard cross-browser scroll-lock trick) avoids that.
+    const scrollY = window.scrollY;
+    const body = document.body;
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.left = "0";
+    body.style.right = "0";
+    body.style.width = "100%";
     return () => {
-      document.documentElement.style.overflow = "";
+      body.style.position = "";
+      body.style.top = "";
+      body.style.left = "";
+      body.style.right = "";
+      body.style.width = "";
+      window.scrollTo(0, scrollY);
     };
   }, [mobileOpen]);
 
