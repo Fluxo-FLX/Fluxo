@@ -1,14 +1,14 @@
 import { ButtonLink } from "./button";
-import { PlaceholderPhoto } from "./placeholder-photo";
 
 export function Hero() {
   return (
     <section className="relative flex min-h-[85vh] items-end overflow-hidden bg-ink text-paper">
-      <PlaceholderPhoto
-        tone="lifestyle"
-        className="absolute inset-0 h-full w-full"
-        sublabel="Treino · Surf · Cidade"
-        label="Campanha Fluxo FLX"
+      <img
+        src="/hero-campaign.jpg"
+        alt="Campanha Fluxo FLX — treino, surf e cidade"
+        fetchPriority="high"
+        loading="eager"
+        className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/10 to-transparent" />
 
