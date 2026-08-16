@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { useCart } from "@/contexts/cart-context";
 import { useWishlist } from "@/contexts/wishlist-context";
 import { HeaderSearch } from "./header-search";
@@ -175,6 +176,7 @@ export function Header({ categoryMenus }: { categoryMenus: CategoryMenu[] }) {
   };
 
   return (
+    <>
     <header
       className={`sticky top-0 z-40 w-full border-b transition-all duration-300 ${
         scrolled
@@ -278,59 +280,72 @@ export function Header({ categoryMenus }: { categoryMenus: CategoryMenu[] }) {
           </button>
         </div>
       </div>
-
-      <div
-        className={`fixed inset-0 z-50 bg-ink/50 transition-opacity duration-300 lg:hidden ${
-          mobileOpen ? "opacity-100" : "pointer-events-none opacity-0"
-        }`}
-        onClick={closeMobile}
-        aria-hidden="true"
-      />
-      <div
-        ref={drawerRef}
-        className={`fixed inset-y-0 left-0 z-50 flex h-full w-full max-w-xs flex-col overflow-y-auto bg-paper shadow-xl transition-transform duration-300 lg:hidden ${
-          mobileOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
-        aria-label="Menu"
-      >
-        <div className="flex items-center justify-between border-b border-mist px-4 py-5">
-          <img src="/logo.png?v=2" alt="Fluxo FLX" className="h-5 w-auto" />
-          <button
-            type="button"
-            aria-label="Fechar menu"
-            onClick={closeMobile}
-            className="-m-2 p-2 text-2xl leading-none"
-          >
-            ×
-          </button>
-        </div>
-        <nav className="flex flex-col px-4 py-4">
-          <Link href="/loja" onClick={closeMobile} className="label-caps border-b border-mist py-4 text-sm">
-            Loja
-          </Link>
-
-          {categoryMenus.map((cat) => (
-            <MobileAccordion
-              key={cat.slug}
-              label={cat.label}
-              items={cat.subcategories.map((sub) => ({ label: sub, href: `${cat.href}?sub=${encodeURIComponent(sub)}` }))}
-              viewAllHref={cat.href}
-              viewAllLabel={`Ver tudo em ${cat.label}`}
-              open={mobileAccordion === cat.slug}
-              onToggle={() => setMobileAccordion((v) => (v === cat.slug ? null : cat.slug))}
-              onNavigate={closeMobile}
-            />
-          ))}
-
-          <Link
-            href="/loja?filtro=novidades"
-            onClick={closeMobile}
-            className="label-caps border-b border-mist py-4 text-sm"
-          >
-            Novidades
-          </Link>
-        </nav>
-      </div>
     </header>
+
+    {/* Portaled to <body> instead of nested inside <header> — a `position:
+        sticky` ancestor that has activated (scrolled) can trap `position:
+        fixed` descendants inside its own box on mobile Safari instead of
+        letting them cover the viewport, which is exactly what made this
+        drawer render as a squished strip instead of a full-screen panel
+        once the page was scrolled. */}
+    {typeof document !== "undefined" &&
+      createPortal(
+        <>
+          <div
+            className={`fixed inset-0 z-50 bg-ink/50 transition-opacity duration-300 lg:hidden ${
+              mobileOpen ? "opacity-100" : "pointer-events-none opacity-0"
+            }`}
+            onClick={closeMobile}
+            aria-hidden="true"
+          />
+          <div
+            ref={drawerRef}
+            className={`fixed inset-y-0 left-0 z-50 flex h-full w-full max-w-xs flex-col overflow-y-auto bg-paper shadow-xl transition-transform duration-300 lg:hidden ${
+              mobileOpen ? "translate-x-0" : "-translate-x-full"
+            }`}
+            aria-label="Menu"
+          >
+            <div className="flex items-center justify-between border-b border-mist px-4 py-5">
+              <img src="/logo.png?v=2" alt="Fluxo FLX" className="h-5 w-auto" />
+              <button
+                type="button"
+                aria-label="Fechar menu"
+                onClick={closeMobile}
+                className="-m-2 p-2 text-2xl leading-none"
+              >
+                ×
+              </button>
+            </div>
+            <nav className="flex flex-col px-4 py-4">
+              <Link href="/loja" onClick={closeMobile} className="label-caps border-b border-mist py-4 text-sm">
+                Loja
+              </Link>
+
+              {categoryMenus.map((cat) => (
+                <MobileAccordion
+                  key={cat.slug}
+                  label={cat.label}
+                  items={cat.subcategories.map((sub) => ({ label: sub, href: `${cat.href}?sub=${encodeURIComponent(sub)}` }))}
+                  viewAllHref={cat.href}
+                  viewAllLabel={`Ver tudo em ${cat.label}`}
+                  open={mobileAccordion === cat.slug}
+                  onToggle={() => setMobileAccordion((v) => (v === cat.slug ? null : cat.slug))}
+                  onNavigate={closeMobile}
+                />
+              ))}
+
+              <Link
+                href="/loja?filtro=novidades"
+                onClick={closeMobile}
+                className="label-caps border-b border-mist py-4 text-sm"
+              >
+                Novidades
+              </Link>
+            </nav>
+          </div>
+        </>,
+        document.body,
+      )}
+    </>
   );
 }
