@@ -185,7 +185,7 @@ export function Header({ categoryMenus }: { categoryMenus: CategoryMenu[] }) {
             icon-spacing changes). */}
         <div className="flex flex-1 justify-center lg:flex-none lg:justify-start">
           <Link href="/" className="shrink-0">
-            <img src="/logo.png?v=2" alt="Fluxo FLX" className="h-6 w-auto sm:h-7" />
+            <img src="/logo.png?v=2" alt="Fluxo FLX" className="h-5 w-auto sm:h-6" />
           </Link>
         </div>
 
@@ -278,7 +278,7 @@ export function Header({ categoryMenus }: { categoryMenus: CategoryMenu[] }) {
         aria-label="Menu"
       >
         <div className="flex items-center justify-between border-b border-mist px-4 py-5">
-          <img src="/logo.png?v=2" alt="Fluxo FLX" className="h-6 w-auto" />
+          <img src="/logo.png?v=2" alt="Fluxo FLX" className="h-5 w-auto" />
           <button
             type="button"
             aria-label="Fechar menu"
