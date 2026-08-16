@@ -132,10 +132,7 @@ export default function SobrePage() {
       <section className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 lg:px-8">
         <p className="font-display text-2xl">Seu ritmo. Seu estilo.</p>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <ButtonLink href="/marcas" variant="primary">
-            Conheça as marcas
-          </ButtonLink>
-          <ButtonLink href="/manifesto" variant="secondary">
+          <ButtonLink href="/manifesto" variant="primary">
             Ler o manifesto
           </ButtonLink>
         </div>
