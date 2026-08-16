@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useSession } from "next-auth/react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useCart } from "@/contexts/cart-context";
 import { useWishlist } from "@/contexts/wishlist-context";
 import { HeaderSearch } from "./header-search";
@@ -139,6 +139,7 @@ export function Header({ categoryMenus }: { categoryMenus: CategoryMenu[] }) {
   const { itemCount, openCart } = useCart();
   const { slugs } = useWishlist();
   const { data: session } = useSession();
+  const drawerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -149,25 +150,22 @@ export function Header({ categoryMenus }: { categoryMenus: CategoryMenu[] }) {
 
   useEffect(() => {
     if (!mobileOpen) return;
-    // Plain `overflow: hidden` on <html> doesn't reliably lock scroll on iOS
-    // Safari once the page is already scrolled — the sticky header and the
-    // fixed drawer can end up positioned relative to the stale scroll offset
-    // instead of the viewport. Pinning the body via a negative `top` offset
-    // (the standard cross-browser scroll-lock trick) avoids that.
-    const scrollY = window.scrollY;
-    const body = document.body;
-    body.style.position = "fixed";
-    body.style.top = `-${scrollY}px`;
-    body.style.left = "0";
-    body.style.right = "0";
-    body.style.width = "100%";
+    // Pinning <body> with position:fixed (the usual cross-browser scroll-lock
+    // trick) forces a full-page reflow on a long page like this one, which
+    // shows up on real phones as the background visibly repainting top-to-
+    // bottom right as the drawer opens. Plain `overflow: hidden` is cheap and
+    // doesn't reflow anything; it just doesn't stop iOS Safari's rubber-band
+    // scroll from bleeding through on its own, so touchmove is blocked
+    // manually for any touch that starts outside the drawer's own scroll area.
+    document.documentElement.style.overflow = "hidden";
+    const preventBackgroundScroll = (e: TouchEvent) => {
+      if (drawerRef.current?.contains(e.target as Node)) return;
+      e.preventDefault();
+    };
+    document.addEventListener("touchmove", preventBackgroundScroll, { passive: false });
     return () => {
-      body.style.position = "";
-      body.style.top = "";
-      body.style.left = "";
-      body.style.right = "";
-      body.style.width = "";
-      window.scrollTo(0, scrollY);
+      document.documentElement.style.overflow = "";
+      document.removeEventListener("touchmove", preventBackgroundScroll);
     };
   }, [mobileOpen]);
 
@@ -289,6 +287,7 @@ export function Header({ categoryMenus }: { categoryMenus: CategoryMenu[] }) {
         aria-hidden="true"
       />
       <div
+        ref={drawerRef}
         className={`fixed inset-y-0 left-0 z-50 flex h-full w-full max-w-xs flex-col overflow-y-auto bg-paper shadow-xl transition-transform duration-300 lg:hidden ${
           mobileOpen ? "translate-x-0" : "-translate-x-full"
         }`}
