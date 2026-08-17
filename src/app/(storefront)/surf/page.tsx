@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { CatalogView } from "@/components/catalog-view";
-import { PlaceholderPhoto } from "@/components/placeholder-photo";
 import { getAllBrands, getProductsByCategory } from "@/lib/demo-data";
 
 export const metadata: Metadata = {
@@ -17,8 +16,12 @@ export default async function SurfPage({ searchParams }: PageProps<"/surf">) {
 
   return (
     <div>
-      <section className="relative flex h-64 items-end overflow-hidden bg-ink text-paper sm:h-80">
-        <PlaceholderPhoto tone="surf" className="absolute inset-0 h-full w-full" demoTag={false} />
+      <section className="relative flex h-[480px] items-end overflow-hidden bg-ink text-paper sm:h-[780px]">
+        <img
+          src="/surf-hero.jpg"
+          alt="Surf Fluxo FLX"
+          className="absolute inset-0 h-full w-full object-cover object-[center_40%]"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/85 to-transparent" />
         <div className="relative mx-auto w-full max-w-7xl px-4 pb-8 sm:px-6 lg:px-8">
           <h1 className="font-display text-4xl sm:text-5xl">Surf</h1>

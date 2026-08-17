@@ -50,6 +50,8 @@ export default async function Home() {
             title="Surf"
             description="Liberdade, praia e lifestyle."
             cta="Explorar Surf"
+            image="/surf-hero.jpg"
+            imagePosition="51% center"
           />
           <CategoryBlock
             href="/casual"
