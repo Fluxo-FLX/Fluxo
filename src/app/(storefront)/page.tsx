@@ -41,6 +41,8 @@ export default async function Home() {
             title="Fitness"
             description="Performance, treino e movimento."
             cta="Explorar Fitness"
+            image="/fitness-hero.jpg"
+            imagePosition="59% center"
           />
           <CategoryBlock
             href="/surf"

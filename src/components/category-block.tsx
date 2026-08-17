@@ -7,13 +7,24 @@ type CategoryBlockProps = {
   title: string;
   description: string;
   cta: string;
+  image?: string;
+  imagePosition?: string;
 };
 
-export function CategoryBlock({ href, tone, title, description, cta }: CategoryBlockProps) {
+export function CategoryBlock({ href, tone, title, description, cta, image, imagePosition }: CategoryBlockProps) {
   return (
     <Link href={href} className="group relative block aspect-[3/4] overflow-hidden">
       <div className="h-full w-full transition-transform duration-700 group-hover:scale-105">
-        <PlaceholderPhoto tone={tone} className="h-full w-full" demoTag={false} />
+        {image ? (
+          <img
+            src={image}
+            alt={title}
+            className="h-full w-full object-cover"
+            style={imagePosition ? { objectPosition: imagePosition } : undefined}
+          />
+        ) : (
+          <PlaceholderPhoto tone={tone} className="h-full w-full" demoTag={false} />
+        )}
       </div>
       <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 p-6 text-paper sm:p-8">
