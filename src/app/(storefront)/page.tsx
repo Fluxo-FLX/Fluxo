@@ -59,6 +59,8 @@ export default async function Home() {
             title="Casual"
             description="Estilo para todos os momentos."
             cta="Explorar Casual"
+            image="/casual-hero.jpg"
+            imagePosition="51% center"
           />
         </div>
       </section>
