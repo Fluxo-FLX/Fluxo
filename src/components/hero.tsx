@@ -39,10 +39,10 @@ export function Hero() {
           Uma curadoria de marcas para acompanhar todos os seus movimentos.
         </p>
         <div className="animate-fade-up mt-8 flex flex-wrap gap-4 opacity-0 [animation-delay:0.3s]">
-          <ButtonLink href="/loja" variant="primary" className="bg-petrol hover:bg-sand hover:text-ink">
+          <ButtonLink href="/loja" variant="primary" className="w-64 bg-petrol hover:bg-sand hover:text-ink">
             Explorar coleção
           </ButtonLink>
-          <ButtonLink href="/manifesto" variant="primary" className="bg-petrol hover:bg-sand hover:text-ink">
+          <ButtonLink href="/manifesto" variant="primary" className="w-64 bg-petrol hover:bg-sand hover:text-ink">
             Conheça a Fluxo
           </ButtonLink>
         </div>
