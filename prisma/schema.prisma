@@ -18,7 +18,7 @@ enum UserRole {
 enum CategorySlug {
   fitness
   surf
-  casual
+  street
 }
 
 enum SaleChannel {

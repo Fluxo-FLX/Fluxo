@@ -31,7 +31,7 @@ export default async function Home() {
           align="center"
           eyebrow="Do treino à cidade"
           title="Três movimentos, um só estilo"
-          subtitle="Fitness, surf e casual, marcas selecionadas para acompanhar cada momento do seu dia."
+          subtitle="Fitness, surf e street, marcas selecionadas para acompanhar cada momento do seu dia."
           className="mx-auto mb-12 max-w-2xl"
         />
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
@@ -54,12 +54,12 @@ export default async function Home() {
             imagePosition="51% center"
           />
           <CategoryBlock
-            href="/casual"
-            tone="casual"
-            title="Casual"
+            href="/street"
+            tone="street"
+            title="Street"
             description="Estilo para todos os momentos."
-            cta="Explorar Casual"
-            image="/casual-hero.jpg"
+            cta="Explorar Street"
+            image="/street-hero.jpg"
             imagePosition="51% center"
           />
         </div>

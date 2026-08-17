@@ -81,7 +81,7 @@ export function seedBrands(): Brand[] {
         "Peças casuais de corte contemporâneo, o básico bem resolvido para transitar do trabalho ao fim de semana.",
       history:
         "DEMO: história da marca a ser substituída por conteúdo real fornecido pela marca parceira.",
-      categories: ["casual"],
+      categories: ["street"],
       accent: "ink",
     },
     {
@@ -92,7 +92,7 @@ export function seedBrands(): Brand[] {
         "Uma curadoria híbrida entre performance e streetwear, para quem não separa o treino do estilo de vida.",
       history:
         "DEMO: história da marca a ser substituída por conteúdo real fornecido pela marca parceira.",
-      categories: ["fitness", "casual"],
+      categories: ["fitness", "street"],
       accent: "petrol",
     },
   ];
@@ -238,7 +238,7 @@ export function seedProducts(): StoredProduct[] {
       composition: "100% algodão penteado.",
       care: ["Lavar à máquina em água fria", "Virar do lado de dentro antes de lavar"],
       isBestSeller: true,
-      tags: ["surf", "praia", "casual"],
+      tags: ["surf", "praia", "street"],
       relatedSlugs: ["boardshort-fluxo-wave", "bone-surf-classic"],
     },
     {
@@ -279,7 +279,7 @@ export function seedProducts(): StoredProduct[] {
       slug: "camiseta-essential-city",
       name: "Camiseta Essential City",
       brandSlug: "marca-demo-03",
-      category: "casual",
+      category: "street",
       subcategory: "Camisetas",
       price: 139.9,
       stock: 30,
@@ -293,7 +293,7 @@ export function seedProducts(): StoredProduct[] {
       composition: "100% algodão pima.",
       care: ["Lavar à máquina em água fria", "Não usar alvejante"],
       isBestSeller: true,
-      tags: ["casual", "básico"],
+      tags: ["street", "básico"],
       relatedSlugs: ["calca-city-move", "bermuda-urban-fit"],
     },
     {
@@ -301,7 +301,7 @@ export function seedProducts(): StoredProduct[] {
       slug: "bermuda-urban-fit",
       name: "Bermuda Urban Fit",
       brandSlug: "marca-demo-03",
-      category: "casual",
+      category: "street",
       subcategory: "Bermudas",
       price: 189.9,
       stock: 4,
@@ -310,7 +310,7 @@ export function seedProducts(): StoredProduct[] {
       description: "Bermuda de sarja com corte slim e acabamento premium.",
       composition: "98% algodão, 2% elastano.",
       care: ["Lavar à máquina em água fria", "Passar a ferro em temperatura média"],
-      tags: ["casual"],
+      tags: ["street"],
       relatedSlugs: ["camiseta-essential-city", "calca-city-move"],
     },
     {
@@ -318,7 +318,7 @@ export function seedProducts(): StoredProduct[] {
       slug: "calca-city-move",
       name: "Calça City Move",
       brandSlug: "marca-demo-03",
-      category: "casual",
+      category: "street",
       subcategory: "Calças",
       price: 259.9,
       compareAtPrice: 299.9,
@@ -330,7 +330,7 @@ export function seedProducts(): StoredProduct[] {
       composition: "68% poliéster, 30% viscose, 2% elastano.",
       care: ["Lavar a seco recomendado", "Passar a ferro em temperatura baixa"],
       isNew: true,
-      tags: ["casual", "trabalho"],
+      tags: ["street", "trabalho"],
       relatedSlugs: ["camiseta-essential-city", "bermuda-urban-fit"],
     },
     {
@@ -338,7 +338,7 @@ export function seedProducts(): StoredProduct[] {
       slug: "bone-city-basic",
       name: "Boné City Basic",
       brandSlug: "marca-demo-03",
-      category: "casual",
+      category: "street",
       subcategory: "Acessórios",
       price: 69.9,
       stock: 50,
@@ -347,7 +347,7 @@ export function seedProducts(): StoredProduct[] {
       description: "Boné minimalista em algodão com aba reta e logo bordado discreto.",
       composition: "100% algodão.",
       care: ["Limpar com pano úmido"],
-      tags: ["acessório", "casual"],
+      tags: ["acessório", "street"],
     },
     {
       sizeGuideRows: camisetaSizeGuide,
@@ -390,7 +390,7 @@ export function seedProducts(): StoredProduct[] {
       slug: "jaqueta-corta-vento-fluxo",
       name: "Jaqueta Corta-Vento Fluxo",
       brandSlug: "marca-demo-04",
-      category: "casual",
+      category: "street",
       subcategory: "Calças",
       price: 299.9,
       stock: 2,

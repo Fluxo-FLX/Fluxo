@@ -31,10 +31,10 @@ const WEBSITE_JSON_LD = {
   },
 };
 
-const CATEGORY_LABELS: { slug: "fitness" | "surf" | "casual"; label: string; href: string }[] = [
+const CATEGORY_LABELS: { slug: "fitness" | "surf" | "street"; label: string; href: string }[] = [
   { slug: "fitness", label: "Fitness", href: "/fitness" },
   { slug: "surf", label: "Surf", href: "/surf" },
-  { slug: "casual", label: "Casual", href: "/casual" },
+  { slug: "street", label: "Street", href: "/street" },
 ];
 
 export default async function StorefrontLayout({ children }: { children: ReactNode }) {

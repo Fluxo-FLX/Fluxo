@@ -26,7 +26,7 @@ const SORT_LABELS: Record<SortKey, string> = {
 const CATEGORY_LABELS: Record<CategorySlug, string> = {
   fitness: "Fitness",
   surf: "Surf",
-  casual: "Casual",
+  street: "Street",
 };
 
 export default async function AdminProductsPage({

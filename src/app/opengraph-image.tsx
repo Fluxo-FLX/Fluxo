@@ -28,7 +28,7 @@ export default function Image() {
             marginBottom: 24,
           }}
         >
-          Fitness · Surf · Casual
+          Fitness · Surf · Street
         </div>
         <div style={{ display: "flex", fontSize: 140, fontWeight: 700, color: "#ffffff", lineHeight: 1 }}>FLX</div>
         <div style={{ fontSize: 38, marginTop: 28, color: "#ffffff", opacity: 0.85 }}>Seu ritmo. Seu estilo.</div>

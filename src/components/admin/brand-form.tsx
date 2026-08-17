@@ -10,7 +10,7 @@ import type { Brand, CategorySlug } from "@/lib/types";
 const CATEGORIES: { value: CategorySlug; label: string }[] = [
   { value: "fitness", label: "Fitness" },
   { value: "surf", label: "Surf" },
-  { value: "casual", label: "Casual" },
+  { value: "street", label: "Street" },
 ];
 
 const ACCENTS: { value: Brand["accent"]; label: string }[] = [

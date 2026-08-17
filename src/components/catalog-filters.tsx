@@ -28,7 +28,7 @@ export const SORT_OPTIONS: { value: SortOption; label: string }[] = [
 const ALL_CATEGORIES: { value: CategorySlug; label: string }[] = [
   { value: "fitness", label: "Fitness" },
   { value: "surf", label: "Surf" },
-  { value: "casual", label: "Casual" },
+  { value: "street", label: "Street" },
 ];
 
 export function hasActiveFilters(state: CatalogFilterState): boolean {

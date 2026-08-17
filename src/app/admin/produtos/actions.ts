@@ -51,7 +51,7 @@ function revalidateCatalogPaths(slug: string, brandSlug: string) {
   revalidatePath("/loja");
   revalidatePath("/fitness");
   revalidatePath("/surf");
-  revalidatePath("/casual");
+  revalidatePath("/street");
   revalidatePath(`/produto/${slug}`);
   revalidatePath(`/marcas/${brandSlug}`);
 }

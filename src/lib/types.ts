@@ -1,7 +1,7 @@
 import type { PlaceholderTone } from "@/components/placeholder-photo";
 import type { SizeGuideRow } from "./size-guide";
 
-export type CategorySlug = "fitness" | "surf" | "casual";
+export type CategorySlug = "fitness" | "surf" | "street";
 
 export type Brand = {
   slug: string;

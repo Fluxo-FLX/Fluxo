@@ -11,9 +11,9 @@ const FAQ_ITEMS = [
   {
     title: "A Fluxo FLX fabrica as roupas que vende?",
     plainAnswer:
-      "Não. A Fluxo FLX é uma curadoria multimarcas: selecionamos marcas parceiras de fitness, surf e casual e reunimos tudo em um só lugar.",
+      "Não. A Fluxo FLX é uma curadoria multimarcas: selecionamos marcas parceiras de fitness, surf e street e reunimos tudo em um só lugar.",
     content:
-      "Não. A Fluxo FLX é uma curadoria multimarcas: selecionamos marcas parceiras de fitness, surf e casual e reunimos tudo em um só lugar.",
+      "Não. A Fluxo FLX é uma curadoria multimarcas: selecionamos marcas parceiras de fitness, surf e street e reunimos tudo em um só lugar.",
   },
   {
     title: "Quais formas de pagamento são aceitas?",

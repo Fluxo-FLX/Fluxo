@@ -13,7 +13,7 @@ const COLUMNS: { title: string; links: { href: string; label: string }[] }[] = [
       { href: "/loja?filtro=novidades", label: "Novidades" },
       { href: "/fitness", label: "Fitness" },
       { href: "/surf", label: "Surf" },
-      { href: "/casual", label: "Casual" },
+      { href: "/street", label: "Street" },
       { href: "/loja?filtro=mais-vendidos", label: "Mais vendidos" },
     ],
   },

@@ -103,7 +103,7 @@ export default function SobrePage() {
           <p>
             A ideia nasceu de uma observação simples: a mesma pessoa treina de manhã, vai à praia à tarde e
             encontra amigos à noite, e continua sendo ela mesma em cada um desses momentos. A Fluxo FLX existe
-            para acompanhar esse movimento, conectando fitness, surf e casual em uma única curadoria.
+            para acompanhar esse movimento, conectando fitness, surf e street em uma única curadoria.
           </p>
           <p>
             Hoje trabalhamos com marcas demonstrativas enquanto construímos as parcerias reais da plataforma.

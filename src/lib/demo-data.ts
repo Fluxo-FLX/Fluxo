@@ -43,7 +43,7 @@ export const looks: Look[] = [
   {
     slug: "city-look",
     title: "City Look",
-    category: "casual",
+    category: "street",
     description: "Camiseta + calça + boné, estilo para a rotina na cidade.",
     productSlugs: ["camiseta-essential-city", "calca-city-move", "bone-city-basic"],
   },

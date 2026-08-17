@@ -1,12 +1,12 @@
 import { FlowLines } from "./flow-lines";
 
-export type PlaceholderTone = "fitness" | "surf" | "casual" | "lifestyle" | "ink" | "sand";
+export type PlaceholderTone = "fitness" | "surf" | "street" | "lifestyle" | "ink" | "sand";
 type Tone = PlaceholderTone;
 
 const GRADIENTS: Record<Tone, string> = {
   fitness: "linear-gradient(145deg, #111111 0%, #0f5b5b 100%)",
   surf: "linear-gradient(145deg, #0f5b5b 0%, #d8cbb7 100%)",
-  casual: "linear-gradient(145deg, #111111 0%, #4a4a4a 60%, #666666 100%)",
+  street: "linear-gradient(145deg, #111111 0%, #4a4a4a 60%, #666666 100%)",
   lifestyle: "linear-gradient(145deg, #111111 0%, #0f5b5b 55%, #d8cbb7 100%)",
   ink: "linear-gradient(145deg, #1c1c1c 0%, #111111 100%)",
   sand: "linear-gradient(145deg, #d8cbb7 0%, #b7a891 100%)",

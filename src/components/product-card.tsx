@@ -13,7 +13,7 @@ import { useCart } from "@/contexts/cart-context";
 const TONE_BY_CATEGORY = {
   fitness: "fitness",
   surf: "surf",
-  casual: "casual",
+  street: "street",
 } as const;
 
 export function ProductCard({ product }: { product: Product }) {

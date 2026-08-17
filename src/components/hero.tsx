@@ -23,12 +23,12 @@ export function Hero() {
         aria-hidden="true"
         className="label-caps pointer-events-none absolute left-6 top-1/2 hidden -translate-y-1/2 -rotate-90 whitespace-nowrap text-[11px] tracking-[0.3em] text-paper/40 lg:block"
       >
-        Fitness · Surf · Casual
+        Fitness · Surf · Street
       </span>
 
       <div className="relative mx-auto w-full max-w-7xl px-4 pb-16 pt-32 sm:px-6 sm:pb-24 lg:px-8">
         <p className="label-caps animate-fade-up text-xs text-sand opacity-0">
-          Fitness · Surf · Casual
+          Fitness · Surf · Street
         </p>
         <h1 className="font-display animate-fade-up mt-4 max-w-2xl text-5xl leading-[1.05] tracking-tight opacity-0 sm:text-7xl [animation-delay:0.1s]">
           SEU RITMO.

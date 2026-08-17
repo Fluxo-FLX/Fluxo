@@ -9,7 +9,7 @@ const VIEWS = ["Produto", "Detalhe", "Lifestyle", "Composição"];
 const TONE_BY_CATEGORY = {
   fitness: "fitness",
   surf: "surf",
-  casual: "casual",
+  street: "street",
 } as const;
 
 export function ProductGallery({ product }: { product: Product }) {

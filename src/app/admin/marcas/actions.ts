@@ -26,7 +26,7 @@ function revalidateBrandPaths(slug: string) {
   revalidatePath("/loja");
   revalidatePath("/fitness");
   revalidatePath("/surf");
-  revalidatePath("/casual");
+  revalidatePath("/street");
 }
 
 export async function createBrandAction(input: BrandFormInput): Promise<BrandMutationResult> {

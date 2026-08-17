@@ -14,7 +14,7 @@ export const productFormSchema = z.object({
     .regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, "Use apenas letras minúsculas, números e hífens."),
   name: z.string().min(2, "Informe o nome."),
   brandSlug: z.string().min(1, "Selecione uma marca."),
-  category: z.enum(["fitness", "surf", "casual"]),
+  category: z.enum(["fitness", "surf", "street"]),
   subcategory: z.string().min(2, "Informe a subcategoria."),
   // Plain z.number() (no z.coerce) so the schema's input and output types
   // match — react-hook-form's `valueAsNumber` on the inputs does the
@@ -32,7 +32,7 @@ export const productFormSchema = z.object({
   tagsRaw: z.string().optional(),
   isNew: z.boolean().optional(),
   isBestSeller: z.boolean().optional(),
-  imageTone: z.enum(["fitness", "surf", "casual", "lifestyle", "ink", "sand"]).optional(),
+  imageTone: z.enum(["fitness", "surf", "street", "lifestyle", "ink", "sand"]).optional(),
   images: z.array(z.string()).optional(),
   sizeGuideRows: z
     .array(
@@ -55,7 +55,7 @@ export const brandFormSchema = z.object({
   tagline: z.string().min(2, "Informe a assinatura da marca."),
   description: z.string().min(10, "Escreva uma descrição com pelo menos 10 caracteres."),
   history: z.string().min(2, "Informe a história da marca."),
-  categories: z.array(z.enum(["fitness", "surf", "casual"])).min(1, "Selecione ao menos uma categoria."),
+  categories: z.array(z.enum(["fitness", "surf", "street"])).min(1, "Selecione ao menos uma categoria."),
   accent: z.enum(["petrol", "sand", "ink"]),
 });
 

@@ -7,7 +7,7 @@ const STATIC_ROUTES: { path: string; priority: number; changeFrequency: Metadata
   { path: "/loja", priority: 0.9, changeFrequency: "daily" },
   { path: "/fitness", priority: 0.8, changeFrequency: "weekly" },
   { path: "/surf", priority: 0.8, changeFrequency: "weekly" },
-  { path: "/casual", priority: 0.8, changeFrequency: "weekly" },
+  { path: "/street", priority: 0.8, changeFrequency: "weekly" },
   { path: "/marcas", priority: 0.7, changeFrequency: "weekly" },
   { path: "/manifesto", priority: 0.5, changeFrequency: "monthly" },
   { path: "/sobre", priority: 0.5, changeFrequency: "monthly" },

@@ -13,7 +13,7 @@ import { uploadImageAction } from "@/app/actions/upload";
 const CATEGORIES: { value: CategorySlug; label: string }[] = [
   { value: "fitness", label: "Fitness" },
   { value: "surf", label: "Surf" },
-  { value: "casual", label: "Casual" },
+  { value: "street", label: "Street" },
 ];
 
 const ALL_SIZES = ["PP", "P", "M", "G", "GG", "Único"];
@@ -21,7 +21,7 @@ const ALL_SIZES = ["PP", "P", "M", "G", "GG", "Único"];
 const IMAGE_TONES: { value: PlaceholderTone; label: string }[] = [
   { value: "fitness", label: "Fitness" },
   { value: "surf", label: "Surf" },
-  { value: "casual", label: "Casual" },
+  { value: "street", label: "Street" },
   { value: "lifestyle", label: "Lifestyle" },
   { value: "ink", label: "Ink" },
   { value: "sand", label: "Sand" },

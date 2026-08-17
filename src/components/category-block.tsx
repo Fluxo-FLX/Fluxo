@@ -3,7 +3,7 @@ import { PlaceholderPhoto } from "./placeholder-photo";
 
 type CategoryBlockProps = {
   href: string;
-  tone: "fitness" | "surf" | "casual";
+  tone: "fitness" | "surf" | "street";
   title: string;
   description: string;
   cta: string;

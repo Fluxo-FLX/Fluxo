@@ -5,7 +5,7 @@ import { getAllBrands, getAllProducts } from "@/lib/demo-data";
 
 export const metadata: Metadata = {
   title: "Loja",
-  description: "Explore toda a curadoria multimarcas da Fluxo FLX: fitness, surf e casual.",
+  description: "Explore toda a curadoria multimarcas da Fluxo FLX: fitness, surf e street.",
 };
 
 export default async function LojaPage({ searchParams }: PageProps<"/loja">) {
