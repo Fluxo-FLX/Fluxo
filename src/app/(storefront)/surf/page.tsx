@@ -20,7 +20,7 @@ export default async function SurfPage({ searchParams }: PageProps<"/surf">) {
         <img
           src="/surf-hero.jpg"
           alt="Surf Fluxo FLX"
-          className="absolute inset-0 h-full w-full object-cover object-[center_40%]"
+          className="absolute inset-0 h-full w-full object-cover object-top"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/85 to-transparent" />
         <div className="relative mx-auto w-full max-w-7xl px-4 pb-8 sm:px-6 lg:px-8">

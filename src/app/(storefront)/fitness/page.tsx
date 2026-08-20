@@ -17,7 +17,7 @@ export default async function FitnessPage({ searchParams }: PageProps<"/fitness"
   return (
     <div>
       <section className="relative flex h-[480px] items-end overflow-hidden bg-ink text-paper sm:h-[780px]">
-        <img src="/fitness-hero.jpg" alt="Fitness Fluxo FLX" className="absolute inset-0 h-full w-full object-cover" />
+        <img src="/fitness-hero.jpg" alt="Fitness Fluxo FLX" className="absolute inset-0 h-full w-full object-cover object-top" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/85 to-transparent" />
         <div className="relative mx-auto w-full max-w-7xl px-4 pb-8 sm:px-6 lg:px-8">
           <h1 className="font-display text-4xl sm:text-5xl">Fitness</h1>
